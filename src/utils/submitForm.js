@@ -1,6 +1,6 @@
 export function submitForm(prevState, queryData) {
-    const email = queryData['email'];
-    const password = queryData['password'];
+    const email = queryData.get('email');
+    const password = queryData.get('password');
     const newDataForm = { ...prevState, email, password };
 
     console.log(newDataForm);

@@ -9,10 +9,8 @@ import styles from '../styles/form.module.css';
 export const Form = () => {
     const {
         register,
-        handleSubmit,
         formState: { errors, isValid, isDirty },
         trigger,
-        reset,
     } = useForm({
         defaultValues: initialDataForm,
         resolver: yupResolver(formSchema),
@@ -40,13 +38,8 @@ export const Form = () => {
         }
     };
 
-    const onSubmit = (data) => {
-        formAction(data);
-        reset();
-    };
-
     return (
-        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        <form className={styles.form} action={formAction}>
             <div className={styles['form-group']}>
                 <label htmlFor="email">Email:</label>
                 <input
